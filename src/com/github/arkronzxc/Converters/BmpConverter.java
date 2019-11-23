@@ -9,8 +9,8 @@ public class BmpConverter implements ConverterInt {
     private BmpConverter() {
 
     }
-
     @Override
+
     public String getExtension() {
         return EXTENSION;
     }
