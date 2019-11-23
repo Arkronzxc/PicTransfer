@@ -24,7 +24,7 @@ public class BmpConverter implements ConverterInt {
         throw new IllegalArgumentException("Incorrect extension");
     }
 
-    public static ConverterInt newInstanse() {
+    public static ConverterInt newInstance() {
         if (bmpConverter == null) {
             bmpConverter = new BmpConverter();
         }

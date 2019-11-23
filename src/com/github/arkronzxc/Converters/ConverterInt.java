@@ -25,7 +25,6 @@ public interface ConverterInt {
         File fnew = new File(path);
         BufferedImage originalImage = ImageIO.read(fnew);
         ByteArrayOutputStream data = new ByteArrayOutputStream();
-        //мы из буферизов изображ orig img, узнаем расширение с помощью getExt, и записываем в массив байтов
         ImageIO.write(originalImage, getExtension(), data);
         byte[] imageInByte = data.toByteArray();
 
@@ -33,8 +32,6 @@ public interface ConverterInt {
     }
 
     default void fromByteArray(byte[] data) throws IOException {
-        // получаем директорию с джарником
-        // output - название файла
         String currentDirectory = "C:\\666";
         String defaultFileName = currentDirectory + "/output." + getExtension();
         fromByteArray(defaultFileName, data);

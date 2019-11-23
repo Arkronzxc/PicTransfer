@@ -11,9 +11,6 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-    private static ConverterInt converterFrom;
-    private static ConverterInt converterTo;
-
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
@@ -36,8 +33,8 @@ public class Main {
             throw new IllegalArgumentException("Форматы совпадают");
         }
 
-        converterFrom = fabrikConverter(fromFormat);
-        converterTo = fabrikConverter(toFormat);
+        ConverterInt converterFrom = fabrikConverter(fromFormat);
+        ConverterInt converterTo = fabrikConverter(toFormat);
 
         outputFileName = outputFileName + "." + converterTo.getExtension();
         outputDir = outputDir + "\\";
@@ -49,14 +46,14 @@ public class Main {
 
     }
 
-    public static ConverterInt fabrikConverter(String extension){
+    private static ConverterInt fabrikConverter(String extension){
         ConverterInt resultConverter;
         switch (extension){
             case "jpg":
-                resultConverter = JpgConverter.newInstanse();
+                resultConverter = JpgConverter.newInstance();
                 break;
             case "bmp":
-                resultConverter = BmpConverter.newInstanse();
+                resultConverter = BmpConverter.newInstance();
                 break;
             case "png":
                 resultConverter = PngConverter.newInstance();

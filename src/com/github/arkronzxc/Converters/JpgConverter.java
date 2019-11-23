@@ -1,17 +1,12 @@
 package com.github.arkronzxc.Converters;
 
-import java.io.IOException;
-
 public class JpgConverter implements ConverterInt {
 
     private static final String EXTENSION = "jpg";
 
-    // чтобы был один экземпляр
     private static JpgConverter jpgConverter = null;
 
-    // чтобы никто не смог вызвать из другой части программы new JpgConverter
     private JpgConverter() {
-
     }
 
     @Override
@@ -28,15 +23,10 @@ public class JpgConverter implements ConverterInt {
         throw new IllegalArgumentException("Incorrect extension");
     }
 
-
-    // возвращ экземпляр jpgConverter'а. Если никто не инициализ,
-    // то вернет новый экземляр, а если иниц, то возвращ этот
-    // от ConverterInt чтобы был независим от реализации
-    public static ConverterInt newInstanse() {
+    public static ConverterInt newInstance() {
         if (jpgConverter == null) {
             jpgConverter = new JpgConverter();
         }
         return jpgConverter;
     }
-    //дефолт методы уже есть, просто они скрыты.
 }
